@@ -13,26 +13,20 @@
 
          store.forEach(function (item) {
            console.log("ibiubiubib",item) //store[i];
-         });
-         for (var i = 0; i < store.length; i++) {
-
-          console.log(store[i].poster);
-          console.log(store[i].title);
-          console.log(store[i].author);
 
           var source   = document.getElementById("entry-template").innerHTML;
           var template = Handlebars.compile(source);
 
 
-          var context = {indirizzoimg: store[i].poster,
-                          titolo: store[i].title,
-                          nomeautore:store[i].author
+          var context = {indirizzoimg: item.poster,
+                          titolo: item.title,
+                          nomeautore:item.author
                         };
           var html = template(context);
 
           $(".cds-container.container").append(html);
-         }
 
+      });
         },
 
        error : function (errore) {
